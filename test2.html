@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Wardrobe Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .container {
+            margin-bottom: 20px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Smart Wardrobe Assistant</h1>
+    <p>Wooff! You opened our doors, smart wardrobe assistant!</p>
+
+    <!-- Gender Selection -->
+    <div class="container" id="step1">
+        <label for="gender">Enter Your Gender:</label>
+        <select id="gender">
+            <option value="0">Select...</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+        </select>
+        <button class="button" onclick="selectOccasion()">Next</button>
+    </div>
+
+    <!-- Occasion Selection -->
+    <div class="container" id="step2" style="display: none;">
+        <label for="occasion">Enter Your Occasion:</label>
+        <select id="occasion">
+            <option value="0">Select...</option>
+            <option value="1">formal</option>
+            <option value="2">casual</option>
+            <option value="3">wedding</option>
+        </select>
+        <button class="button" onclick="selectAdvice()">Next</button>
+    </div>
+
+    <!-- Advice Selection -->
+    <div class="container" id="step3" style="display: none;">
+        <label for="advice">Enter What Advice You Want:</label>
+        <select id="advice">
+            <option value="0">Select...</option>
+            <option value="1">Choose shirt by your lower</option>
+            <option value="2">Choose lower by your shirt</option>
+            <option value="3">Suggest whole outfit</option>
+        </select>
+        <button class="button" onclick="getAdvice()">Next</button>
+    </div>
+
+    <!-- Lower Color Selection -->
+    <div class="container" id="step4" style="display: none;">
+        <label for="lowerColor">Choose Your Lower Color:</label>
+        <select id="lowerColor">
+            <option value="0">Select...</option>
+            <option value="1">White</option>
+            <option value="2">Black</option>
+            <option value="3">Gray</option>
+            <option value="4">Navy Blue</option>
+            <option value="5">Red</option>
+            <option value="6">Emerald Green</option>
+            <option value="7">Yellow</option>
+            <option value="8">Orange</option>
+            <option value="9">Turquoise</option>
+            <option value="10">Light Pink</option>
+            <option value="11">Baby Blue</option>
+            <option value="12">Mint Green</option>
+            <option value="13">Gold</option>
+            <option value="14">Silver</option>
+            <option value="15">Brown</option>
+            <option value="16">Beige</option>
+            <option value="17">Royal Blue</option>
+            <option value="18">Olive Green</option>
+            <option value="19">Purple</option>
+            <option value="20">Coral</option>
+        </select>
+        <button class="button" onclick="showResult()">Submit</button>
+    </div>
+
+    <!-- Shirt Color Selection -->
+    <div class="container" id="step5" style="display: none;">
+        <label for="shirtColor">Choose Your Shirt Color:</label>
+        <select id="shirtColor">
+            <option value="0">Select...</option>
+            <option value="1">White</option>
+            <option value="2">Black</option>
+            <option value="3">Gray</option>
+            <option value="4">Navy Blue</option>
+            <option value="5">Red</option>
+            <option value="6">Emerald Green</option>
+            <option value="7">Yellow</option>
+            <option value="8">Orange</option>
+            <option value="9">Turquoise</option>
+            <option value="10">Light Pink</option>
+            <option value="11">Baby Blue</option>
+            <option value="12">Mint Green</option>
+            <option value="13">Gold</option>
+            <option value="14">Silver</option>
+            <option value="15">Brown</option>
+            <option value="16">Beige</option>
+            <option value="17">Royal Blue</option>
+            <option value="18">Olive Green</option>
+            <option value="19">Purple</option>
+            <option value="20">Coral</option>
+        </select>
+        <button class="button" onclick="showResult()">Submit</button>
+    </div>
+
+    <!-- Skin Tone Selection -->
+    <div class="container" id="step6" style="display: none;">
+        <label for="skinTone">Enter Your Skin Color:</label>
+        <select id="skinTone">
+            <option value="0">Select...</option>
+            <option value="1">Fair</option>
+            <option value="2">Medium</option>
+            <option value="3">Tan</option>
+            <option value="4">Dark</option>
+        </select>
+        <button class="button" onclick="suggestOutfit()">Submit</button>
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function selectOccasion() {
+            const gender = document.getElementById('gender').value;
+            if (gender == "0") {
+                alert('Please select your gender');
+                return;
+            }
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+        }
+
+        function selectAdvice() {
+            const occasion = document.getElementById('occasion').value;
+            if (occasion == "0") {
+                alert('Please select an occasion');
+                return;
+            }
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step3').style.display = 'block';
+        }
+
+        function getAdvice() {
+            const advice = document.getElementById('advice').value;
+            if (advice == "0") {
+                alert('Please select the type of advice you want');
+                return;
+            }
+            document.getElementById('step3').style.display = 'none';
+
+            if (advice == "1") {
+                document.getElementById('step4').style.display = 'block';
+            } else if (advice == "2") {
+                document.getElementById('step5').style.display = 'block';
+            } else if (advice == "3") {
+                document.getElementById('step6').style.display = 'block';
+            }
+        }
+
+        function showResult() {
+            const lowerColor = document.getElementById('lowerColor').value;
+            const shirtColor = document.getElementById('shirtColor').value;
+            const result = document.getElementById('result');
+
+            result.textContent = "You've chosen a combination. We'll suggest matching outfits based on your choice.";
+        }
+
+        function suggestOutfit() {
+            const skinTone = document.getElementById('skinTone').value;
+            const result = document.getElementById('result');
+
+            if (skinTone == "1" || skinTone == "2") {
+                result.textContent = "For your skin tone, wear light colors like light pink or navy blue.";
+            } else if (skinTone == "3") {
+                result.textContent = "For your skin tone, wear dark colors like black or maroon.";
+            } else if (skinTone == "4") {
+                result.textContent = "Dark shades will enhance your look. Try deep reds or purples.";
+            }
+        }
+    </script>
+</body>
+</html>
