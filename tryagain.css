@@ -1,0 +1,122 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, #ea4b4b, #e7654e);
+    font-family: 'Poppins', sans-serif;
+    background-color: #723f87;
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #222;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: transform 1.5s ease;
+}
+
+.navbar h2 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+.nav-links a:hover {
+    background-color: #0cb9cf;
+    color: rgb(32, 132, 185);
+    border-radius: 5px;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 120px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form label {
+    font-weight: 500;
+    color: #333;
+}
+
+form select,
+form input,
+form textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button[type="button"] {
+    background-color: #0eddec;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+button[type="button"]:hover {
+    transform: scale(1.05);
+}
+
+/* Output Section */
+#outputSection {
+    margin-top: 20px;
+}
+
+#suggestionText {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #14adcb;
+}
+
+/* Color Wheel Canvas */
+#colorWheel {
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    display: block;
+}
